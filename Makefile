@@ -49,6 +49,11 @@ presubmit:
 .PHONY: licenses
 licenses: ; @./scripts/licenses.sh
 
+.PHONY: certs
+certs:
+	@echo "Generating certificate chain..."
+	@$(SHELL) scripts/gen-certs.sh create
+
 .PHONY: help
 help:
 	@echo "Available targets:"
@@ -58,3 +63,4 @@ help:
 	@echo "  * presubmit:  check you are ready to push your local branch to remote"
 	@echo "  * help:       print this menu"
 	@echo "  * licenses:   check licenses of dependent packages"
+	@echo "  * certs:      generate the certificate chain"
